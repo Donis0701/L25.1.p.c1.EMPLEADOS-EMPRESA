@@ -5,21 +5,14 @@ Se dispone de los siguientes datos de varios empleados: (nombre, sexo) (Mary, �
 (José, ‘M’), (Carlos, ‘M’), (Pedro, ‘M’)
 Cantidad de hombres que trabajan en la empresa: 3
 Porcentaje de mujeres que trabajan en la empresa: 25%*/
-import cl_Empleado from "./cl_Empleado.js";
-import cl_Empresa from "./cl_Empresa.js";
-
-let empleado1=new cl_Empleado('Mary','F');
-let empleado2=new cl_Empleado('Jose','M');
-let empleado3=new cl_Empleado('Carlos','M');
-let empleado4=new cl_Empleado('Pedro','M');
-
-let empresa=new cl_Empresa();
-
-empresa.procesarEmpleado(empleado1);
-empresa.procesarEmpleado(empleado2);
-empresa.procesarEmpleado(empleado3);
-empresa.procesarEmpleado(empleado4);
-
-let salida = document.getElementById("salida");
-salida.innerHTML += `Cantidad de hombres que trabajan en la empresa: ${empresa.totalHombres()}<br>
-Porcentaje de mujeres que trabajan en la empresa: ${empresa.porcentajeMujeres()}%`;
+import cl_mEmpresa from "./cl_mEmpresa.js";
+import cl_vEmpresa from "./cl_vEmpresa.js";
+import cl_controlador from "./cl_controlador.js";
+export default class cl_principal {
+    constructor(){
+        let modelo = new cl_mEmpresa;
+        let vista = new cl_vEmpresa;
+        let controlador = new cl_controlador(modelo,vista);
+        vista.controlador = controlador;
+    }
+}

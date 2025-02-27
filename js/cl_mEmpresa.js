@@ -1,4 +1,4 @@
-export default class cl_Empresa{
+export default class cl_mEmpresa{
     constructor(){
         this.cntHombres=0;
         this.cntMujeres=0;
